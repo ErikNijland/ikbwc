@@ -12,6 +12,7 @@
             <ul>
                 <template is="dom-repeat" items="{{tabs}}">
                     <li>
+                        {{_getClassName(index)}}
                         <button on-tap="openTab">{{item.heading}}</button>
                     </li>
                 </template>
@@ -23,15 +24,24 @@
         Polymer({
             is: 'ikb-tabs',
             properties: {
-                activeTab: Number
+                tabs: {
+                    type: Array,
+                    oberserver: '_getClassName(tabs)'
+                }
             },
             ready: function () {
                 this.tabs = Polymer.dom(this).children;
             },
             openTab: function (e) {
-                Polymer.dom(this).children.forEach(function (tab, index) {
-                    tab.selected = index === e.model.index;
+                var self = this;
+
+                this.tabs.forEach(function (tab, index) {
+                    self.set('tabs.' + index + '.selected', index === e.model.index)
                 });
+            },
+            _getClassName: function (index) {
+                console.log(index);
+                return 'active';
             }
         });
     </script>
