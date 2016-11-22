@@ -1,5 +1,9 @@
 {
   "name": "ikbwc",
   "homepage": "https://github.com/DatapuntAmsterdam/ikbwc",
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "dependencies": {
+    "polymer": "^1.7.0",
+    "webcomponentsjs": "^0.7.23"
+  }
 }
