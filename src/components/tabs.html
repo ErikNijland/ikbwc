@@ -12,6 +12,7 @@
             <ul>
                 <template is="dom-repeat" items="{{tabs}}">
                     <li>
+                        {{getClassName(item.selected)}}
                         <button on-tap="openTab">{{item.heading}}</button>
                     </li>
                 </template>
@@ -27,9 +28,6 @@
                     type: Array
                 }
             },
-            observers: [
-                'selectedTabsChange(tabs.*)'
-            ],
             ready: function () {
                 this.tabs = Polymer.dom(this).children;
             },
@@ -40,9 +38,8 @@
                     self.set('tabs.' + index + '.selected', index === e.model.index)
                 });
             },
-            selectedTabsChange: function (tab) {
-                console.log(index);
-                return 'active';
+            getClassName: function (isSelected) {
+                return isSelected ? 'active' : null;
             }
         });
     </script>
