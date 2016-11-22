@@ -1,0 +1,21 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="ikb-tab" attributes="heading">
+    <template>
+        <template is="dom-if" if="{{selected}}">
+            <div>
+                <content></content>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ikb-tab',
+            properties: {
+                heading: String,
+                selected: Boolean
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,49 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="ikb-breadcrumb-item">
+    <template>
+        <style>
+            :root {
+                --font-size-md: 14px;
+                --white: #fff;
+            }
+
+            li {
+                display: inline-block;
+                font-size: var(--font-size-md);
+            }
+
+            a {
+                color: var(--white);
+            }
+
+            a::after {
+                display: inline-block;
+                margin-right: 5px;
+                margin-left: 5px;
+                content: ">";
+            }
+        </style>
+
+        <li>
+            <template is="dom-if" if="{{hasLink}}">
+                <a href="{{href}}"><content></content></a>
+            </template>
+            <template is="dom-if" if="{{!hasLink}}">
+                <span><content></content></span>
+            </template>
+        </li>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ikb-breadcrumb-item',
+            properties: {
+                href: String
+            },
+            ready: function () {
+                this.hasLink = typeof this.href === 'string';
+            }
+        })
+    </script>
+</dom-module>

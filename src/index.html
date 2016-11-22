@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <title>Amsterdam.nl styleguide</title>
+
+        <link rel="import" href="components/breadcrumb.html">
+        <link rel="import" href="components/breadcrumb-item.html">
+        <link rel="import" href="components/tabs.html">
+        <link rel="import" href="components/tab.html">
+    </head>
+    <body>
+        <ikb-breadcrumb>
+            <ikb-breadcrumb-item href="http://www.example.com/">Home</ikb-breadcrumb-item>
+            <ikb-breadcrumb-item href="http://www.example.com/news/">News</ikb-breadcrumb-item>
+            <ikb-breadcrumb-item>My news article</ikb-breadcrumb-item>
+        </ikb-breadcrumb>
+
+        <ikb-tabs>
+            <ikb-tab heading="Tab #1">
+                <p>Content of the first tab</p>
+            </ikb-tab>
+            <ikb-tab heading="Tab #2" selected>
+                <p>Content of the second tab</p>
+            </ikb-tab>
+        </ikb-tabs>
+    </body>
+</html>

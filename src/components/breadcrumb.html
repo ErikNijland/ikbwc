@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="ikb-breadcrumb">
+    <template>
+        <style>
+            :root {
+                --height: 38px;
+
+                --whitespace-base: 16px;
+                --whitespace-half: calc(var(--whitespace-base) / 2);
+
+                --black: #000;
+                --white: #fff;
+            }
+
+            nav {
+                height: var(--height);
+                padding-right: var(--whitespace-base);
+                padding-left: var(--whitespace-base);
+                background-color: var(--black);
+                color: var(--white);
+                font-family: "Helvetica Neue", Helvetica, sans-serif;
+                line-height: var(--height);
+            }
+
+            ul {
+                display: block;
+                padding-left: 0;
+                font-size: 0;
+            }
+        </style>
+
+        <nav>
+            <ul>
+                <content></content>
+            </ul>
+        </nav>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ikb-breadcrumb'
+        });
+    </script>
+</dom-module>

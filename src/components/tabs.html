@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="ikb-tabs">
+    <template>
+        <style>
+            .active button {
+                color: red;
+            }
+        </style>
+
+        <nav>
+            <ul>
+                <template is="dom-repeat" items="{{tabs}}">
+                    <li>
+                        <button on-tap="openTab">{{item.heading}}</button>
+                    </li>
+                </template>
+            </ul>
+        </nav>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: 'ikb-tabs',
+            properties: {
+                activeTab: Number
+            },
+            ready: function () {
+                this.tabs = Polymer.dom(this).children;
+            },
+            openTab: function (e) {
+                Polymer.dom(this).children.forEach(function (tab, index) {
+                    tab.selected = index === e.model.index;
+                });
+            }
+        });
+    </script>
+</dom-module>
