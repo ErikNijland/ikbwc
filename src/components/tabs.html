@@ -1,8 +1,59 @@
 <dom-module id="ikb-tabs">
     <template>
         <style>
-            .active button {
-                color: red;
+            :host {
+            }
+
+            ul {
+                display: block;
+                padding-left: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            li {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            li:not(:last-child) {
+                margin-right: 15px;
+            }
+
+            button {
+                font-family: "Helvetica Neue", Helvetica, sans-serif;
+                font-size: 16px;
+                background-color: #eeeeee;
+                color: #000;
+                cursor: pointer;
+                padding: 10px 15px;
+                border-width: 2px 2px 0 2px;
+                border-style: solid;
+                border-color: #999;
+            }
+
+            li.active button {
+                position: relative;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                font-weight: 700;
+                background-color: #fff;
+            }
+
+            li.active button::after {
+                content: '';
+                height: 2px;
+                position: absolute;
+                background-color: #fff;
+                right: 0;
+                left: 0;
+                bottom: -2px;
+            }
+
+            div {
+                border: 2px solid #999;
+                padding-right: 15px;
+                padding-left: 15px;
             }
         </style>
 
@@ -16,7 +67,9 @@
                 </template>
             </ul>
         </nav>
-        <content></content>
+        <div>
+            <content></content>
+        </div>
     </template>
     <script>
         Polymer({
