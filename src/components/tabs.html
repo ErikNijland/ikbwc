@@ -11,8 +11,8 @@
         <nav>
             <ul>
                 <template is="dom-repeat" items="{{tabs}}">
-                    <li>
-                        {{getClassName(item.selected)}}
+                    <li class$="{{getClassName(item.selected)}}">
+
                         <button on-tap="openTab">{{item.heading}}</button>
                     </li>
                 </template>
@@ -29,7 +29,19 @@
                 }
             },
             ready: function () {
+                // Todo: Make sure only one tab is active on initialization
+                var hasSelectedTab;
+
                 this.tabs = Polymer.dom(this).children;
+
+                hasSelectedTab = this.tabs.filter(function (tab) {
+                    return tab.selected;
+                }).length > 0;
+
+                if (!hasSelectedTab) {
+                    this.set('tabs.0.selected', true);
+                }
+
             },
             openTab: function (e) {
                 var self = this;
