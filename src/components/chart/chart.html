@@ -1,0 +1,44 @@
+<link rel="import" href="../../../bower_components/google-chart/google-chart.html">
+<link rel="import" href="chart-item.html">
+
+<dom-module id="ikb-chart">
+    <template>
+        <google-chart
+            type="{{type}}"
+            options="{{options}}"
+            data="{{data}}">
+        </google-chart>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: 'ikb-chart',
+            properties: {
+                heading: String,
+                data: Array,
+                type: String
+            },
+            attached: function () {
+                this.type = this.type || 'column';
+
+                var self = this;
+
+                this.options = {
+                    title: this.heading
+                };
+
+                if (this.type === 'column') {
+                    this.options.legend = {position: 'none'};
+                }
+
+                this.data = [
+                    ['Label', 'value']
+                ];
+
+                Polymer.dom(this).children.forEach(function (item) {
+                    self.push('data', [item.label, item.value]);
+                });
+            }
+        });
+    </script>
+</dom-module>
