@@ -1,0 +1,14 @@
+{
+  "name": "ikbwc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DatapuntAmsterdam/ikbwc.git"
+  },
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-html-postcss": "^6.0.1",
+    "gulp-postcss": "^6.2.0",
+    "postcss-custom-media": "^5.0.1"
+  }
+}
